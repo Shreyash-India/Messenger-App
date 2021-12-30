@@ -16,7 +16,7 @@ class DatabaseMethods {
         .snapshots();
   }
 
-  addMessage(String chatRoomId, String messageId,
+  Future addMessage(String chatRoomId, String messageId,
       Map<String, dynamic> messageInformation) async {
     return FirebaseFirestore.instance
         .collection("chatrooms")
@@ -34,7 +34,7 @@ class DatabaseMethods {
         .update(lastMessageInformation);
   }
 
-  createChatRoom(
+  Future createChatRoom(
       String chatRoomId, Map<String, dynamic> chatRoomInformation) async {
     final snapShot = await FirebaseFirestore.instance
         .collection("chatrooms")
